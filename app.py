@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, session
 import sqlite3
-
+from changeImg import changeImage
 app = Flask(__name__)
 app.secret_key = 'supersecretkey'
 
@@ -13,6 +13,14 @@ def get_user(username, password):
     user = cursor.fetchone()
     conn.close()
     return user
+
+@app.route('/donate')
+def donate():
+    return render_template('Donate.html')
+
+@app.route('/upload')
+def upload():
+    return render_template('upload.html')
 
 def user_exists(username):
     conn = sqlite3.connect('database.db')
@@ -90,4 +98,4 @@ def register():
     return render_template('register.html')
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    app.run(debug=True, port=8080)

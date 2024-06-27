@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="../static/css/magnific-popup.css">
 
 
+
     <link rel="stylesheet" href="../static/css/aos.css">
 
     <link rel="stylesheet" href="../static/css/ionicons.min.css">
@@ -55,7 +56,14 @@
           <li class="nav-item"><a href="about.html" class="nav-link">Information</a></li>
 	          <li class="nav-item dropdown">
             <li class="nav-item"><a href="shop.html" class="nav-link">Painting</a></li>
-	          <li class="nav-item"><a href="donate.html" class="nav-link">Donate</a></li>
+				 <li class="nav-item"><a href="{{url_for('upload')}}" class="nav-link">Upload</a></li>
+
+	        <li class="nav-item"><a href="{{url_for('donate')}}" class="nav-link">Donate</a></li>
+				{% if isLogin %}
+				 <li class="nav-item"><a href="{{url_for('logout')}}" class="nav-link btn-login">Logout</a></li>
+				{% else %}
+				<li class="nav-item"><a href="{{url_for('login')}}" class="nav-link btn-login">Login</a></li>
+				{% endif %}
 <!-- 	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
  -->	         
 <!--   <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
