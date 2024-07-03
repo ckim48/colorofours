@@ -60,20 +60,21 @@ def inverse_gamma(srgb, gamma_value):
 		rgb [idx,i] = 255* (1.055 * srgb[idx,i]**(1/gamma_value)-0.055)
 
 	return rgb
+
 def changeImage(image):
 # img: input image
 	img = np.asarray(Image.open(image).convert("RGB"),dtype=np.float16)
 	img = gamma(img,2.2)
 	arr_result = changeColor(img,'p')
 	img_result = arrayToImg(arr_result)
-	img_result.save("PT1_p.jpg")
+	img_result.save("processed/about_whatp.jpg")
 
 	arr_result = changeColor(img,'d')
 	img_result = arrayToImg(arr_result)
-	img_result.save("PT1_d.png")
+	img_result.save("processed/about_whatd.jpg")
 
 
 	arr_result = changeColor(img,'t')
 	img_result = arrayToImg(arr_result)
-	img_result.save("SO1_t.jpg")
+	img_result.save("processed/about_whatt.jpg")
 
